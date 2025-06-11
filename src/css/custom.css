@@ -5,6 +5,7 @@
  */
 
 /* You can override the default Infima variables here. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -14,7 +15,10 @@
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
+  --site-announcement-bar-stripe-color1: rgba(255, 0, 0, 1);
+  --site-announcement-bar-stripe-color2: hsl(167deg 68% 95%);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: 'JetBrains Mono Medium', 'FZLanTingYuanS-R-GB', 'Noto Sans', sans-serif;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,4 +31,68 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.theme-announcement-bar,
+div[class*='announcementBar'],
+div[class*='announcementBarContent'],
+:root {
+  --docusaurus-announcement-bar-bg: repeating-linear-gradient(
+    45deg,
+    #ff6b6b 0%,
+    #ff6b6b 10%,
+    #4ecdc4 10%,
+    #4ecdc4 20%,
+    #45b7d1 20%,
+    #45b7d1 30%,
+    #96e6a1 30%,
+    #96e6a1 40%
+  ) !important;
+}
+
+.theme-announcement-bar,
+div[class*='announcementBar'] {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #ff6b6b 0%,
+    #ff6b6b 10%,
+    #4ecdc4 10%,
+    #4ecdc4 20%,
+    #45b7d1 20%,
+    #45b7d1 30%,
+    #96e6a1 30%,
+    #96e6a1 40%
+  ) !important;
+  background-size: 200% 200%;
+  animation: slide 20s linear infinite !important;
+}
+
+@keyframes slide {
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+div[class^='announcementBar'] {
+  background-image: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96e6a1);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+div[class^='announcementBarContent'] {
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
